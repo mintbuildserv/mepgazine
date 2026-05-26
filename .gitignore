@@ -1,9 +1,19 @@
+# OS / editor
 .DS_Store
-node_modules/
-dist/
-build/
-.env
-.env.local
-*.log
+Thumbs.db
 .vscode/
 .idea/
+
+# Logs / env
+*.log
+.env
+.env.local
+
+# InDesign / Adobe scratch files
+*.idlk
+*.tmp
+~$*
+
+# OS thumbnails / previews
+*.swp
+*.bak
