@@ -54,6 +54,10 @@ for f in sorted(glob.glob('spreads/spread-*.html')):
                  transform_dropcap, div, flags=re.S)
     # pullquotes: inject explicit bar as first child
     div = re.sub(r'(<[a-z]+[^>]*class="[^"]*pullquote[^"]*"[^>]*>)', r'\1' + BAR, div)
+    # flipped-M wordmark glyph: Canva drops CSS transforms, so use the SVG glyph asset
+    div = div.replace('<span class="m-flip">M</span>',
+                      f'<img src="{RAW}assets/mflip.svg" alt="" '
+                      'style="height:.71em; margin-right:.06em; vertical-align:baseline;">')
     div = div.replace('src="../assets/', f'src="{RAW}assets/')
     div = div.replace("url('../assets/", f"url('{RAW}assets/")
     div = div.replace('url("../assets/', f'url("{RAW}assets/')
