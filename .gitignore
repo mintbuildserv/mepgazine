@@ -17,3 +17,4 @@ Thumbs.db
 # OS thumbnails / previews
 *.swp
 *.bak
+issues/*/renders/
