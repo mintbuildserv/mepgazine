@@ -38,7 +38,7 @@ Local files in `fonts/` — never substitute.
 
 | Style | Font | Size (px @2px/pt) | Notes |
 |---|---|---|---|
-| Giant display (openers, cover) | Roboto Bold/Black | 190–310 | Tight leading (0.92), letter-spacing ≥ -0.03em, `text-wrap: balance` |
+| Giant display (openers, cover) | Roboto Bold/Black | 190–310 | Tight leading (0.92), letter-spacing ≥ -0.03em, `text-wrap: balance`. Exception: when the longest word cannot reach 190 without crossing the gutter on a single A5 page, size to the largest fit (floor 130) — the no-gutter-crossing rule always wins |
 | Headline (article title on body pages) | Roboto Bold | 64–96 | |
 | Section number (contents) | Roboto Bold | 190 | White on navy |
 | Section name | Roboto Medium Italic | 48–56 | Tracked +0.18em, caps |
@@ -46,7 +46,7 @@ Local files in `fonts/` — never substitute.
 | Standfirst / deck | Space Grotesk Medium | 40 | Max 26 words |
 | Pull quote | Space Grotesk Medium | 40–44 | With 6 px section-colour rule above (not a side stripe) |
 | Subhead | Roboto Bold | 28 | Sentence case |
-| Body | Space Grotesk Regular | 20 | Line-height 1.5, columns 300–340 px wide (≈ 60–68 ch), justify OFF (rag right) |
+| Body | Space Grotesk Regular | 18 | Line-height 1.5, columns ~284 px wide (matches the original 10pt/120pt measure); 17 permitted on the densest spreads; justify OFF (rag right) |
 | Caption / credit | Space Grotesk Regular | 15 | |
 | Contact card | Roboto Bold 20 / Space Grotesk 17 | | White on navy rounded panel, 24 px radius |
 | Drop cap | Space Grotesk Bold | 200, `--mint` | 4-line drop, opener paragraph only, one per article |
