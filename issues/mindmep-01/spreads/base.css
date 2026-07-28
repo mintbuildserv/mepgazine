@@ -1,0 +1,114 @@
+/* MINDMEP base stylesheet — tokens + archetype primitives. Do not fork per spread. */
+
+@font-face { font-family: 'Roboto VF'; src: url('../fonts/Roboto.ttf'); font-weight: 100 900; font-style: normal; }
+@font-face { font-family: 'Roboto VF'; src: url('../fonts/Roboto-Italic.ttf'); font-weight: 100 900; font-style: italic; }
+@font-face { font-family: 'Space Grotesk VF'; src: url('../fonts/SpaceGrotesk.ttf'); font-weight: 300 700; }
+
+:root {
+  --ink: #0F222E;
+  --paper: #FFFFFF;
+  --mint: #4CBC8E;
+  --coral: #F1583A;
+  --sky: #9BD9E5;
+  --sky-tint: #C8E9F2;
+  --lilac: #9F89C0;
+  --peach: #FFE2CB;
+  --ink-90: rgba(15, 34, 46, .9);
+  --display: 'Roboto VF', sans-serif;
+  --body: 'Space Grotesk VF', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+.spread {
+  width: 1418px; height: 998px;
+  position: relative; overflow: hidden;
+  background: var(--paper);
+  font-family: var(--body); color: var(--ink);
+  font-size: 20px; line-height: 1.5;
+}
+.spread.on-ink { background: var(--ink); color: #fff; }
+
+/* Two facing A5 pages */
+.page { position: absolute; top: 0; width: 709px; height: 998px; }
+.page.left { left: 0; } .page.right { left: 709px; }
+
+/* Wayfinding kicker: `01 COMPANY` etc. */
+.kicker {
+  font-family: var(--display); font-weight: 800; font-size: 15px;
+  letter-spacing: .35em; text-transform: uppercase;
+  display: flex; align-items: center; gap: 18px;
+}
+.kicker .num { font-style: italic; }
+.kicker .bar { display: inline-block; width: 64px; height: 10px; }
+.bar-company { background: var(--mint); } .bar-projects { background: var(--lilac); }
+.bar-people { background: var(--sky); } .bar-features { background: var(--coral); }
+.bar-technology { background: var(--peach); }
+
+/* Display headlines */
+.display {
+  font-family: var(--display); font-weight: 700;
+  line-height: .92; letter-spacing: -0.02em; text-wrap: balance;
+}
+.display.giant { font-size: 230px; }
+.headline { font-family: var(--display); font-weight: 700; font-size: 76px; line-height: 1.02; letter-spacing: -0.015em; text-wrap: balance; }
+
+/* Section name beside giant numeral (contents / openers) */
+.section-num { font-family: var(--display); font-weight: 700; font-size: 190px; line-height: 1; }
+.section-name { font-family: var(--display); font-weight: 500; font-style: italic; font-size: 52px; letter-spacing: .18em; text-transform: uppercase; }
+
+.standfirst { font-family: var(--body); font-weight: 500; font-size: 40px; line-height: 1.3; text-wrap: balance; }
+
+.subhead { font-family: var(--display); font-weight: 700; font-size: 28px; line-height: 1.15; margin: 32px 0 12px; text-wrap: balance; }
+
+/* Body columns: fixed-width columns, ~60-68ch measure */
+.cols { display: flex; gap: 28px; }
+.col { width: 300px; }
+p + p { margin-top: 14px; }
+.body-s { font-size: 17px; line-height: 1.5; }
+
+/* Drop cap: one per article, opener paragraph only */
+.dropcap::first-letter {
+  font-family: var(--body); font-weight: 700; color: var(--mint);
+  font-size: 200px; line-height: .8; float: left; padding: 18px 22px 0 0;
+}
+
+/* Pull quote */
+.pullquote { font-family: var(--body); font-weight: 500; font-size: 42px; line-height: 1.25; text-wrap: balance; }
+.pullquote::before { content: ''; display: block; width: 96px; height: 8px; margin-bottom: 24px; background: var(--mint); }
+
+/* Captions, folios */
+.caption { font-size: 15px; line-height: 1.4; }
+.on-ink .caption { color: var(--sky-tint); }
+.folio {
+  position: absolute; bottom: 34px; font-family: var(--body); font-weight: 500;
+  font-size: 15px; letter-spacing: .08em; display: flex; gap: 14px; align-items: baseline;
+}
+.folio.outer-left { left: 60px; } .folio.outer-right { right: 60px; }
+.folio .mag { text-transform: uppercase; letter-spacing: .25em; font-size: 12px; opacity: .75; }
+
+/* Imagery */
+.photo { object-fit: cover; display: block; }
+.bleed { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.scrim-panel { background: var(--ink-90); color: #fff; border-radius: 24px; padding: 44px 40px; }
+.glass { background: rgba(15,34,46,.72); backdrop-filter: blur(14px); border-radius: 24px; }
+
+/* Contact card */
+.contact-card {
+  background: var(--ink); color: #fff; border-radius: 24px;
+  padding: 32px 36px; display: flex; gap: 26px; align-items: center;
+}
+.contact-card img { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; }
+.contact-card .name { font-family: var(--display); font-weight: 700; font-size: 22px; }
+.contact-card .meta { font-size: 17px; line-height: 1.45; }
+
+/* Project spotlight */
+.status { font-family: var(--display); font-weight: 800; font-size: 15px; letter-spacing: .35em; text-transform: uppercase; }
+.stat { font-family: var(--body); font-weight: 700; font-size: 44px; }
+.stat-label { font-size: 15px; letter-spacing: .05em; }
+
+/* MINDMEP wordmark (cover / folio use) */
+.wordmark { font-family: var(--display); font-weight: 700; letter-spacing: .34em; }
+.wordmark .m-flip { display: inline-block; transform: scaleY(-1); position: relative; margin-right: .06em; }
+/* Mint underline for the flipped M: add a separately positioned bar div per layout
+   (pseudo-elements inside the flipped glyph render unreliably in the print pipeline). */
