@@ -1,0 +1,291 @@
+<!doctype html><html><head><meta charset="utf-8"><title>MINDMEP Issue 01</title><style>
+/* MINDMEP base stylesheet — tokens + archetype primitives. Do not fork per spread. */
+
+@font-face { font-family: 'Roboto'; src: url('fonts/Roboto.ttf'); font-weight: 100 900; font-style: normal; }
+@font-face { font-family: 'Roboto'; src: url('fonts/Roboto-Italic.ttf'); font-weight: 100 900; font-style: italic; }
+@font-face { font-family: 'Space Grotesk'; src: url('fonts/SpaceGrotesk.ttf'); font-weight: 300 700; }
+
+:root {
+  --ink: #0F222E;
+  --paper: #FFFFFF;
+  --mint: #4CBC8E;
+  --coral: #F1583A;
+  --sky: #9BD9E5;
+  --sky-tint: #C8E9F2;
+  --lilac: #9F89C0;
+  --peach: #FFE2CB;
+  --ink-90: rgba(15, 34, 46, .9);
+  --display: 'Roboto', sans-serif;
+  --body: 'Space Grotesk', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+.spread {
+  width: 1418px; height: 998px;
+  position: relative; overflow: hidden;
+  background: var(--paper);
+  font-family: var(--body); color: var(--ink);
+  font-size: 20px; line-height: 1.5;
+}
+.spread.on-ink { background: var(--ink); color: #fff; }
+
+/* Two facing A5 pages */
+.page { position: absolute; top: 0; width: 709px; height: 998px; }
+.page.left { left: 0; } .page.right { left: 709px; }
+
+/* Wayfinding kicker: `01 COMPANY` etc. */
+.kicker {
+  font-family: var(--display); font-weight: 800; font-size: 15px;
+  letter-spacing: .35em; text-transform: uppercase;
+  display: flex; align-items: center; gap: 18px;
+}
+.kicker .num { font-style: italic; }
+.kicker .bar { display: inline-block; width: 64px; height: 10px; }
+.bar-company { background: var(--mint); } .bar-projects { background: var(--lilac); }
+.bar-people { background: var(--sky); } .bar-features { background: var(--coral); }
+.bar-technology { background: var(--peach); }
+
+/* Display headlines */
+.display {
+  font-family: var(--display); font-weight: 700;
+  line-height: .92; letter-spacing: -0.02em; text-wrap: balance;
+}
+.display.giant { font-size: 230px; }
+.headline { font-family: var(--display); font-weight: 700; font-size: 76px; line-height: 1.02; letter-spacing: -0.015em; text-wrap: balance; }
+
+/* Section name beside giant numeral (contents / openers) */
+.section-num { font-family: var(--display); font-weight: 700; font-size: 190px; line-height: 1; }
+.section-name { font-family: var(--display); font-weight: 500; font-style: italic; font-size: 52px; letter-spacing: .18em; text-transform: uppercase; }
+
+.standfirst { font-family: var(--body); font-weight: 500; font-size: 40px; line-height: 1.3; text-wrap: balance; }
+
+.subhead { font-family: var(--display); font-weight: 700; font-size: 28px; line-height: 1.15; margin: 32px 0 12px; text-wrap: balance; }
+
+/* Body columns: fixed-width columns, ~60-68ch measure */
+.cols { display: flex; gap: 28px; }
+.col { width: 300px; }
+p + p { margin-top: 14px; }
+.body-s { font-size: 17px; line-height: 1.5; }
+
+/* Drop cap: one per article, opener paragraph only */
+.dropcap::first-letter {
+  font-family: var(--body); font-weight: 700; color: var(--mint);
+  font-size: 200px; line-height: .8; float: left; padding: 18px 22px 0 0;
+}
+
+/* Pull quote */
+.pullquote { font-family: var(--body); font-weight: 500; font-size: 42px; line-height: 1.25; text-wrap: balance; }
+/* Rule colour follows the section: set style="--rule: var(--coral)" (etc.) on the quote */
+.pullquote::before { content: ''; display: block; width: 96px; height: 8px; margin-bottom: 24px; background: var(--rule, var(--mint)); }
+
+/* Captions, folios */
+.caption { font-size: 15px; line-height: 1.4; }
+.on-ink .caption { color: var(--sky-tint); }
+.folio {
+  position: absolute; bottom: 34px; font-family: var(--body); font-weight: 500;
+  font-size: 15px; letter-spacing: .08em; display: flex; gap: 14px; align-items: baseline;
+}
+.folio.outer-left { left: 60px; } .folio.outer-right { right: 60px; }
+.folio .mag { text-transform: uppercase; letter-spacing: .25em; font-size: 12px; opacity: .75; }
+
+/* Imagery */
+.photo { object-fit: cover; display: block; }
+.bleed { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.scrim-panel { background: var(--ink-90); color: #fff; border-radius: 24px; padding: 44px 40px; }
+.glass { background: rgba(15,34,46,.72); backdrop-filter: blur(14px); border-radius: 24px; }
+
+/* Contact card */
+.contact-card {
+  background: var(--ink); color: #fff; border-radius: 24px;
+  padding: 32px 36px; display: flex; gap: 26px; align-items: center;
+}
+.contact-card img { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; }
+.contact-card .name { font-family: var(--display); font-weight: 700; font-size: 22px; }
+.contact-card .meta { font-size: 17px; line-height: 1.45; }
+
+/* Project spotlight */
+.status { font-family: var(--display); font-weight: 800; font-size: 15px; letter-spacing: .35em; text-transform: uppercase; }
+.stat { font-family: var(--body); font-weight: 700; font-size: 44px; }
+.stat-label { font-size: 15px; letter-spacing: .05em; }
+
+/* MINDMEP wordmark (cover / folio use) */
+.wordmark { font-family: var(--display); font-weight: 700; letter-spacing: .34em; }
+.wordmark .m-flip { display: inline-block; transform: scaleY(-1); position: relative; margin-right: .06em; }
+/* Mint underline for the flipped M: add a separately positioned bar div per layout
+   (pseudo-elements inside the flipped glyph render unreliably in the print pipeline). */
+
+#pg03 .st{ font-family: var(--display); font-weight: 700; font-size: 22px; line-height: 1.15; }#pg03 .sd{ font-size: 17px; line-height: 1.45; margin-top: 6px; color: #E4EDF1; }#pg03 .story + .story{ margin-top: 30px; }#pg03 .numrow{ display: flex; align-items: flex-end; gap: 24px; }#pg03 .swatch{ display: block; width: 88px; height: 12px; margin-top: 14px; }
+
+#pg04 .st{ font-family: var(--display); font-weight: 700; font-size: 22px; line-height: 1.15; }#pg04 .sd{ font-size: 17px; line-height: 1.45; margin-top: 6px; color: #E4EDF1; }#pg04 .story + .story{ margin-top: 30px; }#pg04 .numrow{ display: flex; align-items: flex-end; gap: 24px; }#pg04 .swatch{ display: block; width: 88px; height: 12px; margin-top: 14px; }
+
+#pg05 .col{ width: 300px; }#pg05 .letter p{ font-size: 17px; line-height: 1.55; text-wrap: pretty; }#pg05 .letter p + p{ margin-top: 15px; }
+
+#pg06 .col{ width: 300px; }#pg06 .note p{ font-size: 17px; line-height: 1.55; text-wrap: pretty; }#pg06 .note p + p{ margin-top: 15px; }
+
+#pg08 .col{ width: 300px; }#pg08 .bd p{ font-size: 17px; line-height: 1.55; text-wrap: pretty; }#pg08 .bd p + p{ margin-top: 15px; }
+
+#pg09 .blk{ position: absolute; left: 60px; width: 589px; }#pg09 .blk .r{ width: 64px; height: 8px; background: var(--mint); }#pg09 .blk .l{ font-family: var(--display); font-weight: 700; font-size: 26px; margin: 18px 0 12px; }#pg09 .blk p{ font-size: 17px; line-height: 1.55; text-wrap: pretty; }
+
+#pg10 .col{ width: 300px; }#pg10 .bd p{ font-size: 17px; line-height: 1.55; text-wrap: pretty; }#pg10 .bd p + p{ margin-top: 15px; }
+
+#pg12 .pname{ font-family: var(--display); font-weight: 700; font-size: 34px; line-height: 1.06; letter-spacing: -.015em; }#pg12 .pmeta{ font-family: var(--body); font-weight: 700; font-size: 20px; margin-top: 10px; }#pg12 .pmeta em{ font-style: normal; font-weight: 400; color: #4A6472; }#pg12 .prule{ width: 96px; height: 8px; background: var(--lilac); margin: 20px 0 18px; }#pg12 .ptext{ font-size: 17px; line-height: 1.52; text-wrap: pretty; }#pg12 .pill{ position: absolute; font-family: var(--display); font-weight: 800; font-size: 13px;
+          letter-spacing: .3em; text-transform: uppercase; background: var(--lilac); color: var(--ink);
+          padding: 9px 18px 8px; border-radius: 999px; }
+
+#pg13 .pname{ font-family: var(--display); font-weight: 700; font-size: 30px; line-height: 1.06; letter-spacing: -.015em; }#pg13 .pmeta{ font-family: var(--body); font-weight: 700; font-size: 18px; margin-top: 8px; }#pg13 .pmeta em{ font-style: normal; font-weight: 400; color: #4A6472; }#pg13 .prule{ width: 80px; height: 8px; background: var(--lilac); margin: 16px 0 14px; }#pg13 .ptext{ font-size: 17px; line-height: 1.52; text-wrap: pretty; }#pg13 .status{ color: var(--lilac); margin-bottom: 14px; }
+
+#pg14 .pname{ font-family: var(--display); font-weight: 700; font-size: 34px; line-height: 1.06; letter-spacing: -.015em; }#pg14 .pmeta{ font-family: var(--body); font-weight: 700; font-size: 20px; margin-top: 10px; }#pg14 .pmeta em{ font-style: normal; font-weight: 400; color: #4A6472; }#pg14 .prule{ width: 96px; height: 8px; background: var(--lilac); margin: 20px 0 18px; }#pg14 .ptext{ font-size: 17px; line-height: 1.52; text-wrap: pretty; }#pg14 .pill{ position: absolute; font-family: var(--display); font-weight: 800; font-size: 13px;
+          letter-spacing: .3em; text-transform: uppercase; background: var(--lilac); color: var(--ink);
+          padding: 9px 18px 8px; border-radius: 999px; }
+
+#pg17 .col{ width: 300px; }#pg17 .bd p{ font-size: 17px; line-height: 1.55; text-wrap: pretty; }#pg17 .bd p + p{ margin-top: 15px; }#pg17 .pullquote::before{ background: var(--sky); }
+
+#pg18 .col{ width: 300px; }#pg18 .bd p{ font-size: 17px; line-height: 1.55; text-wrap: pretty; }#pg18 .bd p + p{ margin-top: 15px; }
+
+#pg20 .col{ width: 300px; }#pg20 .bd p{ font-size: 17px; line-height: 1.55; text-wrap: pretty; }#pg20 .bd p + p{ margin-top: 15px; }#pg20 .pullquote::before{ background: var(--sky); }
+
+#pg21 .col{ width: 300px; }#pg21 .bd p{ font-size: 17px; line-height: 1.55; text-wrap: pretty; }#pg21 .bd p + p{ margin-top: 15px; }
+
+#pg23 .col{ width: 300px; }#pg23 .bd p{ font-size: 17px; line-height: 1.55; text-wrap: pretty; }#pg23 .bd p + p{ margin-top: 15px; }#pg23 .pullquote::before{ background: var(--sky); }
+
+#pg24 .col{ width: 300px; }#pg24 .bd p{ font-size: 17px; line-height: 1.55; text-wrap: pretty; }#pg24 .bd p + p{ margin-top: 15px; }
+
+#pg25 .scrim{ position:absolute; inset:0;
+    background: linear-gradient(102deg, rgba(15,34,46,.94) 0%, rgba(15,34,46,.86) 34%, rgba(15,34,46,.52) 62%, rgba(15,34,46,.30) 100%); }#pg25 .big{ font-family:var(--display); font-weight:700; font-size:196px; line-height:.9;
+         letter-spacing:-.035em; color:#fff; position:absolute; }#pg25 .big.coral{ color: var(--coral); }
+
+#pg26 .bt{ font-size:19px; line-height:1.56; }#pg26 .bt p + p{ margin-top:16px; }#pg26 .two{ column-count:2; column-gap:29px; }#pg26 .rule{ height:6px; background:var(--coral); }
+
+#pg27 .bt{ font-size:18px; line-height:1.5; }#pg27 .bt p + p{ margin-top:14px; }#pg27 .two{ column-count:2; column-gap:28px; }
+
+#pg28 .bt{ font-size:18px; line-height:1.5; }#pg28 .bt p + p{ margin-top:14px; }#pg28 .two{ column-count:2; column-gap:28px; }
+
+#pg29 .bt{ font-size:19px; line-height:1.55; }#pg29 .bt p + p{ margin-top:15px; }
+
+#pg30 .numeral{ font-family:var(--display); font-weight:700; font-size:300px; line-height:.82;
+             letter-spacing:-.045em; color:#fff; }#pg30 .word{ font-family:var(--display); font-weight:700; font-size:152px; line-height:.9;
+          letter-spacing:-.035em; color:#fff; }#pg30 .sub{ font-family:var(--display); font-weight:800; font-size:40px; line-height:1.12;
+         letter-spacing:.01em; color:var(--coral); }
+
+#pg31 .bt{ font-size:18px; line-height:1.5; }#pg31 .bt p + p{ margin-top:14px; }#pg31 .two{ column-count:2; column-gap:28px; }
+
+#pg32 .bt{ font-size:18px; line-height:1.5; }#pg32 .bt p + p{ margin-top:14px; }#pg32 .two{ column-count:2; column-gap:28px; }
+
+#pg33 .bt{ font-size:18px; line-height:1.5; }#pg33 .bt p + p{ margin-top:14px; }#pg33 .two{ column-count:2; column-gap:28px; }
+
+#pg34 .bt{ font-size:18px; line-height:1.5; }#pg34 .bt p + p{ margin-top:14px; }#pg34 .two{ column-count:2; column-gap:28px; }#pg34 .dropcap::first-letter{ font-size:150px; padding:12px 18px 0 0; }
+
+#pg35 .big{ font-family:var(--display); font-weight:700; font-size:142px; line-height:.92;
+         letter-spacing:-.05em; color:#fff; position:absolute; }#pg35 .big.peach{ color: var(--peach); }
+
+#pg36 .bt{ font-size:18px; line-height:1.5; }#pg36 .bt p + p{ margin-top:14px; }#pg36 .two{ column-count:2; column-gap:28px; }
+
+#pg37 .bt{ font-size:17px; line-height:1.5; }#pg37 .bt p + p{ margin-top:14px; }#pg37 .two{ column-count:2; column-gap:28px; }
+
+#pg38 .ghost{ font-family:var(--display); font-weight:500; font-size:106px; line-height:.98;
+           letter-spacing:-.03em; color:rgba(255,255,255,.14); position:absolute; }#pg38 .track{ font-family:var(--display); font-weight:700; font-size:56px; letter-spacing:.22em;
+           color:#fff; position:absolute; }
+
+#pg39 .bt{ font-size:18px; line-height:1.5; }#pg39 .bt p + p{ margin-top:14px; }#pg39 .two{ column-count:2; column-gap:28px; }
+
+#pg40 .bt{ font-size:18px; line-height:1.5; }#pg40 .bt p + p{ margin-top:14px; }#pg40 .two{ column-count:2; column-gap:28px; }
+
+#pg41 .bt{ font-size:18px; line-height:1.5; }#pg41 .bt p + p{ margin-top:14px; }#pg41 .two{ column-count:2; column-gap:28px; }
+
+#pg42 .country{ font-family:var(--display); font-weight:800; font-size:14px; letter-spacing:.35em;
+             text-transform:uppercase; color:var(--mint); margin-bottom:12px; }#pg42 .addr{ font-family:var(--body); font-weight:500; font-size:17px; line-height:1.55; color:#fff; }
+
+.spread { margin: 0 auto 24px; }
+</style></head><body><div id="pg01" class="spread on-ink" data-document-role="page" data-label="Cover">
+  <!-- Wordmark -->
+  <div style="position:absolute; top:74px; left:0; right:0; text-align:center;">
+    <span class="wordmark" style="font-size:150px; letter-spacing:.30em; margin-left:.30em;">MIND<span class="m-flip">M</span>EP</span>
+  </div>
+  <div style="position:absolute; left:795px; top:252px; width:116px; height:20px; background:var(--mint);"></div>
+  <!-- Hero photo band -->
+  <img class="photo" src="assets/p01-x1552.jpg" alt=""
+       style="position:absolute; left:100px; right:100px; top:300px; width:1218px; height:610px;">
+  <!-- In this issue glass card -->
+  <div class="glass" style="position:absolute; right:130px; top:360px; width:360px; padding:44px 38px; text-align:center;">
+    <div style="font-family:var(--display); font-weight:700; font-size:24px; letter-spacing:.02em; margin-bottom:30px;">IN THIS ISSUE</div>
+    <div style="font-family:var(--display); font-weight:800; font-size:13px; letter-spacing:.3em; color:var(--mint); margin-bottom:8px;">WHAT&rsquo;S IN THE NAME</div>
+    <div style="font-size:18px; line-height:1.35;">Beyond the Acronyms: buildings as a single, coordinated service</div>
+    <div style="width:34px; height:6px; background:#fff; margin:22px auto;"></div>
+    <div style="font-family:var(--display); font-weight:800; font-size:13px; letter-spacing:.3em; color:var(--mint); margin-bottom:8px;">FEATURE STORY</div>
+    <div style="font-size:18px; line-height:1.35;">Old Bones, New Beats<br>Engineering in Heritage Spaces</div>
+    <div style="width:34px; height:6px; background:#fff; margin:22px auto;"></div>
+    <div style="font-family:var(--display); font-weight:800; font-size:13px; letter-spacing:.3em; color:var(--mint); margin-bottom:8px;">TECHNOLOGY</div>
+    <div style="font-size:18px; line-height:1.35;">Low Voltage, High Stakes</div>
+  </div>
+</div>
+<div id="pg02" class="spread on-ink" data-document-role="page" data-label="02 — Full-bleed photo">
+  <img class="bleed" src="assets/p02-x3.jpg" alt="">
+</div>
+<div id="pg03" class="spread on-ink" data-document-role="page" data-label="03 — Contents 01/02">
+
+  <div class="page left">
+    <div style="position:absolute; left:60px; top:36px; font-family:var(--display); font-weight:700; font-size:96px; letter-spacing:-.03em;">Contents</div>
+
+    <img class="photo" src="assets/p04-x10.jpg" alt=""
+         style="position:absolute; left:60px; top:170px; width:589px; height:190px;">
+
+    <div style="position:absolute; left:60px; top:372px;">
+      <div class="numrow">
+        <span class="section-num">01</span>
+        <div style="padding-bottom:24px;">
+          <div class="section-name">Company</div>
+          <span class="swatch bar-company"></span>
+        </div>
+      </div>
+    </div>
+
+    <div style="position:absolute; left:60px; top:616px; width:568px;">
+      <div class="story">
+        <div class="st">Beyond the Acronyms</div>
+        <div class="sd">Why Mint stopped answering to M&amp;E, and what building services means when systems have to work as one.</div>
+      </div>
+      <div class="story">
+        <div class="st">Mint in Thailand</div>
+        <div class="sd">Mint Building Services has entered Thailand, bringing its integrated MEPF design-and-build model to Bangkok.</div>
+      </div>
+      <div class="story">
+        <div class="st">Our new website</div>
+        <div class="sd">A rebuilt mintbuildserv.com, with the project portfolio and regional capability front and centre.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page right">
+    <img class="photo" src="assets/p04-x14.jpg" alt=""
+         style="position:absolute; left:60px; top:170px; width:589px; height:190px;">
+
+    <div style="position:absolute; left:60px; top:372px;">
+      <div class="numrow">
+        <span class="section-num">02</span>
+        <div style="padding-bottom:24px;">
+          <div class="section-name">Projects</div>
+          <span class="swatch bar-projects"></span>
+        </div>
+      </div>
+    </div>
+
+    <div style="position:absolute; left:60px; top:596px; width:568px;">
+      <div style="font-size:17px; line-height:1.45; color:#E4EDF1; margin-bottom:24px;">Project overview from across the business, including:</div>
+      <div class="story">
+        <div class="st">The Laurus at Resorts World Sentosa</div>
+        <div class="sd">Mint supported the conversion of the former Hard Rock Hotel into a luxury destination.</div>
+      </div>
+      <div class="story">
+        <div class="st">Coriander Leaf</div>
+        <div class="sd">Full M&amp;E design and build for the restaurant's flagship at 20 Craig Road, in 14 weeks.</div>
+      </div>
+      <div class="story">
+        <div class="st">YETI APAC Workplace in Bangkok</div>
+        <div class="sd">Mint delivered YETI's APAC workplace in 14 weeks with full MEPF scope.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body></html>
