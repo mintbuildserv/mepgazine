@@ -31,7 +31,9 @@ async def main():
                 print("png", name)
             else:
                 out = os.path.join(BASE, "renders", name + ".pdf")
-                await page.pdf(path=out, width=PT_W, height=PT_H,
+                # Scale the 1418px canvas onto the A5-landscape paper width
+                # (8.2677in * 96 dpi / 1418 px); without this Chromium clips.
+                await page.pdf(path=out, width=PT_W, height=PT_H, scale=0.55973,
                                print_background=True, page_ranges="1")
                 pdfs.append(out); print("pdf", name)
         await browser.close()
