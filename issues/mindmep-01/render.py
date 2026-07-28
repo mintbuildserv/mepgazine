@@ -9,7 +9,7 @@ import sys, glob, os, asyncio
 
 BASE = os.path.dirname(os.path.abspath(__file__))
 W, H = 1418, 998
-PT_W, PT_H = "9.8425in", "6.9292in"  # 708.66 x 498.9 pt
+PT_W, PT_H = "8.2677in", "5.8268in"  # A5 landscape: 210 x 148 mm
 
 async def main():
     from playwright.async_api import async_playwright
