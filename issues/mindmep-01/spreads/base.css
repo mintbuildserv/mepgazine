@@ -75,7 +75,8 @@ p + p { margin-top: 14px; }
 
 /* Pull quote */
 .pullquote { font-family: var(--body); font-weight: 500; font-size: 42px; line-height: 1.25; text-wrap: balance; }
-.pullquote::before { content: ''; display: block; width: 96px; height: 8px; margin-bottom: 24px; background: var(--mint); }
+/* Rule colour follows the section: set style="--rule: var(--coral)" (etc.) on the quote */
+.pullquote::before { content: ''; display: block; width: 96px; height: 8px; margin-bottom: 24px; background: var(--rule, var(--mint)); }
 
 /* Captions, folios */
 .caption { font-size: 15px; line-height: 1.4; }
