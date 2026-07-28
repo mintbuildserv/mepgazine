@@ -1,9 +1,6 @@
 <!doctype html><html><head><meta charset="utf-8"><title>MINDMEP Issue 01</title><style>
 /* MINDMEP base stylesheet — tokens + archetype primitives. Do not fork per spread. */
 
-@font-face { font-family: 'Roboto'; src: url('https://raw.githubusercontent.com/mintbuildserv/mepgazine/claude/mint-magazine-redesign-7370nr/issues/mindmep-01/fonts/Roboto.ttf'); font-weight: 100 900; font-style: normal; }
-@font-face { font-family: 'Roboto'; src: url('https://raw.githubusercontent.com/mintbuildserv/mepgazine/claude/mint-magazine-redesign-7370nr/issues/mindmep-01/fonts/Roboto-Italic.ttf'); font-weight: 100 900; font-style: italic; }
-@font-face { font-family: 'Space Grotesk'; src: url('https://raw.githubusercontent.com/mintbuildserv/mepgazine/claude/mint-magazine-redesign-7370nr/issues/mindmep-01/fonts/SpaceGrotesk.ttf'); font-weight: 300 700; }
 
 :root {
   --ink: #0F222E;
@@ -69,15 +66,10 @@ p + p { margin-top: 14px; }
 .body-s { font-size: 17px; line-height: 1.5; }
 
 /* Drop cap: one per article, opener paragraph only */
-.dropcap::first-letter {
-  font-family: var(--body); font-weight: 700; color: var(--mint);
-  font-size: 200px; line-height: .8; float: left; padding: 18px 22px 0 0;
-}
 
 /* Pull quote */
 .pullquote { font-family: var(--body); font-weight: 500; font-size: 42px; line-height: 1.25; text-wrap: balance; }
 /* Rule colour follows the section: set style="--rule: var(--coral)" (etc.) on the quote */
-.pullquote::before { content: ''; display: block; width: 96px; height: 8px; margin-bottom: 24px; background: var(--rule, var(--mint)); }
 
 /* Captions, folios */
 .caption { font-size: 15px; line-height: 1.4; }
@@ -447,7 +439,7 @@ p + p { margin-top: 14px; }
       <div class="col">
         <p>Clients get one clear point of contact, faster approvals, and predictable handovers.</p>
         <p>You will see that thread through this issue: from Old Bones, New Beats on conservation engineering, to the Thailand spotlight and profiles of the people leading our next phase.</p>
-        <div class="pullquote" style="font-size:30px; margin:34px 0 34px;">We do not just install systems. We engineer outcomes.</div>
+        <div class="pullquote" style="font-size:30px; margin:34px 0 34px;"><span style="display:block;width:96px;height:8px;background:var(--rule, var(--mint));margin-bottom:24px"></span>We do not just install systems. We engineer outcomes.</div>
         <p>The promise is unchanged, with agility, technical exactness, and a calm focus on quality.</p>
         <p>Thank you to our clients, partners, and the Mint team for a strong year. Here's to a safe and prosperous 2026.</p>
       </div>
@@ -492,7 +484,7 @@ p + p { margin-top: 14px; }
     <div class="headline" style="position:absolute; left:60px; top:116px; width:620px; font-size:70px;">Beyond the acronyms</div>
 
     <div class="bd" style="position:absolute; left:60px; top:300px; width:628px;">
-      <p class="dropcap" style="font-size:17px; line-height:1.55;">Mint Building Services carries a relatively new name in the region. The business behind it has been delivering projects since 2010. A management buyout in 2022 laid the foundation for its next stage, driven by the commitment and determination of the leadership team. Since then, the company has expanded its sector coverage and regional presence, broadened its technical capability, and established a clear framework for disciplined growth across Southeast Asia.</p>
+      <div class="" style="font-size:17px; line-height:1.55;"><div style="display:flex;align-items:flex-start;gap:22px"><div style="flex:0 0 auto;font-family:'Space Grotesk';font-weight:700;color:var(--mint);font-size:190px;line-height:.75">M</div><div style="flex:1">int Building Services carries a relatively new name in the region. The business behind it has been delivering projects since 2010. A management buyout in 2022 laid the foundation for its next stage, driven by the commitment and determination of the leadership team. Since then, the company has expanded its sector coverage and regional presence, broadened its technical capability, and established a clear framework for disciplined growth across Southeast Asia.</div></div></div>
     </div>
 
     <div class="subhead" style="position:absolute; left:60px; top:614px; width:600px; margin:0;">We are an M&amp;E contractor</div>
@@ -826,7 +818,7 @@ p + p { margin-top: 14px; }
     </div>
 
     <div class="bd" style="position:absolute; left:60px; top:140px; width:628px;">
-      <p class="dropcap" style="font-size:17px; line-height:1.55;">Shan has been there from day one. Back when Mint was still Update Asia. Back when the team was small, the hustle was real, and nothing moved without a hundred hands, and probably a few late-night coffees.</p>
+      <div class="" style="font-size:17px; line-height:1.55;"><div style="display:flex;align-items:flex-start;gap:22px"><div style="flex:0 0 auto;font-family:'Space Grotesk';font-weight:700;color:var(--mint);font-size:190px;line-height:.75">S</div><div style="flex:1">han has been there from day one. Back when Mint was still Update Asia. Back when the team was small, the hustle was real, and nothing moved without a hundred hands, and probably a few late-night coffees.</div></div></div>
     </div>
 
     <div class="bd cols" style="position:absolute; left:60px; top:440px; width:628px;">
@@ -845,7 +837,7 @@ p + p { margin-top: 14px; }
     <img class="photo" src="https://raw.githubusercontent.com/mintbuildserv/mepgazine/claude/mint-magazine-redesign-7370nr/issues/mindmep-01/assets/p16-x129.jpg" alt=""
          style="position:absolute; left:0; top:0; width:709px; height:560px;">
 
-    <div class="pullquote" style="position:absolute; left:21px; top:620px; width:600px; font-size:36px;">
+    <div class="pullquote" style="position:absolute; left:21px; top:620px; width:600px; font-size:36px;"><span style="display:block;width:96px;height:8px;background:var(--rule, var(--mint));margin-bottom:24px"></span>
       He hires for attitude. He trains for potential. He leads with presence.
     </div>
 
@@ -935,10 +927,10 @@ p + p { margin-top: 14px; }
     </div>
 
     <div class="bd" style="position:absolute; left:60px; top:140px; width:628px;">
-      <p class="dropcap" style="font-size:17px; line-height:1.55;">Jaymee Recto did not fall for economics in a lecture theatre. &ldquo;To be honest, I don&rsquo;t like economics,&rdquo; she says with a laugh. Trained as a civil engineer at Map&uacute;a, she came up in a system without a formal QS track. &ldquo;You can&rsquo;t price what you don&rsquo;t know how to design and build.&rdquo;</p>
+      <div class="" style="font-size:17px; line-height:1.55;"><div style="display:flex;align-items:flex-start;gap:22px"><div style="flex:0 0 auto;font-family:'Space Grotesk';font-weight:700;color:var(--mint);font-size:190px;line-height:.75">J</div><div style="flex:1">aymee Recto did not fall for economics in a lecture theatre. &ldquo;To be honest, I don&rsquo;t like economics,&rdquo; she says with a laugh. Trained as a civil engineer at Map&uacute;a, she came up in a system without a formal QS track. &ldquo;You can&rsquo;t price what you don&rsquo;t know how to design and build.&rdquo;</div></div></div>
     </div>
 
-    <div class="pullquote" style="position:absolute; left:60px; top:462px; width:600px; font-size:38px;">
+    <div class="pullquote" style="position:absolute; left:60px; top:462px; width:600px; font-size:38px;"><span style="display:block;width:96px;height:8px;background:var(--rule, var(--mint));margin-bottom:24px"></span>
       Site, numbers, schedule. That mix clicked.
     </div>
 
@@ -1033,7 +1025,7 @@ p + p { margin-top: 14px; }
     </div>
 
     <div class="bd" style="position:absolute; left:60px; top:140px; width:628px;">
-      <p class="dropcap" style="font-size:17px; line-height:1.55;">Nuno Rio Tinto did not come to Mint to keep the lights on. He came to switch on a market. Bangkok was not a lightning bolt. &ldquo;There wasn&rsquo;t a single moment, more like a slow hum that got louder,&rdquo; he says. He wanted warmth, a little chaos, creative energy.</p>
+      <div class="" style="font-size:17px; line-height:1.55;"><div style="display:flex;align-items:flex-start;gap:22px"><div style="flex:0 0 auto;font-family:'Space Grotesk';font-weight:700;color:var(--mint);font-size:190px;line-height:.75">N</div><div style="flex:1">uno Rio Tinto did not come to Mint to keep the lights on. He came to switch on a market. Bangkok was not a lightning bolt. &ldquo;There wasn&rsquo;t a single moment, more like a slow hum that got louder,&rdquo; he says. He wanted warmth, a little chaos, creative energy.</div></div></div>
     </div>
 
     <div class="bd cols" style="position:absolute; left:60px; top:452px; width:628px;">
@@ -1059,7 +1051,7 @@ p + p { margin-top: 14px; }
 
     <div class="caption" style="position:absolute; left:21px; top:456px; width:300px;">Bangkok, where most of the pipeline still begins over a table rather than in a tender portal.</div>
 
-    <div class="pullquote" style="position:absolute; left:21px; top:690px; width:600px; font-size:36px;">
+    <div class="pullquote" style="position:absolute; left:21px; top:690px; width:600px; font-size:36px;"><span style="display:block;width:96px;height:8px;background:var(--rule, var(--mint));margin-bottom:24px"></span>
       The challenges feel exciting, not exhausting.
     </div>
   </div>
@@ -1140,11 +1132,10 @@ p + p { margin-top: 14px; }
       Engineering comfort into buildings that remember everything.
     </div>
 
-    <div class="bt dropcap" style="position:absolute; left:56px; top:352px; width:480px;">
-      <p>Singapore&rsquo;s skyline shimmers with glass and steel. But between the towers stand
+    <div class="bt " style="position:absolute; left:56px; top:352px; width:480px;"><div style="display:flex;align-items:flex-start;gap:22px"><div style="flex:0 0 auto;font-family:'Space Grotesk';font-weight:700;color:var(--mint);font-size:190px;line-height:.75"><</div><div style="flex:1">p>Singapore&rsquo;s skyline shimmers with glass and steel. But between the towers stand
       quiet survivors: buildings that hold the city&rsquo;s memory in their masonry, their timber
       joists, their narrow five-foot ways. Most people walk past without a second thought.
-      For an engineer, they demand a very different kind of thinking.</p>
+      For an engineer, they demand a very different kind of thinking.</div></div></div>
       <p>Bringing these properties back to life requires creativity, care and respect. It is
       preservation and progress at once: modern systems carefully woven into century-old
       frameworks without erasing their stories.</p>
@@ -1384,13 +1375,12 @@ p + p { margin-top: 14px; }
       <span class="bar bar-features"></span><span>21 KEPPEL</span>
     </div>
 
-    <div class="bt dropcap" style="position:absolute; left:56px; top:142px; width:520px; font-size:19px; line-height:1.55;">
-      <p>The building at 21 Keppel Road had stood for over a century before anyone asked it to
+    <div class="bt " style="position:absolute; left:56px; top:142px; width:520px; font-size:19px; line-height:1.55;"><div style="display:flex;align-items:flex-start;gap:22px"><div style="flex:0 0 auto;font-family:'Space Grotesk';font-weight:700;color:var(--mint);font-size:190px;line-height:.75"><</div><div style="flex:1">p>The building at 21 Keppel Road had stood for over a century before anyone asked it to
       house an innovation hub. Originally constructed as the Customs Operations Command, an
       administrative and operational hub linked to Singapore&rsquo;s port and maritime trade, it
       carried the weight of colonial-era civic architecture. Restrained, functional, symbolic.
       Not designed for EV charging stations or open-plan workspaces or fa&ccedil;ade lighting
-      synced to the energy of the teams inside.</p>
+      synced to the energy of the teams inside.</div></div></div>
     </div>
 
     <div style="position:absolute; left:56px; top:552px; width:96px; height:8px; background:var(--coral);"></div>
@@ -1573,10 +1563,9 @@ p + p { margin-top: 14px; }
       Project Sherlock
     </div>
 
-    <div class="bt dropcap" style="position:absolute; left:56px; top:456px; width:597px;">
-      <p>Each shophouse carries a distinct story. Timber floors, ornate fa&ccedil;ades, and narrow
+    <div class="bt " style="position:absolute; left:56px; top:456px; width:597px;"><div style="display:flex;align-items:flex-start;gap:22px"><div style="flex:0 0 auto;font-family:'Space Grotesk';font-weight:700;color:var(--mint);font-size:190px;line-height:.75"><</div><div style="flex:1">p>Each shophouse carries a distinct story. Timber floors, ornate fa&ccedil;ades, and narrow
       airwells leave very little room for modern services. Mint&rsquo;s job is to thread
-      infrastructure through these layers without disturbing their character.</p>
+      infrastructure through these layers without disturbing their character.</div></div></div>
     </div>
 
     <div class="bt two" style="position:absolute; left:56px; top:672px; width:597px;">
@@ -1665,11 +1654,10 @@ p + p { margin-top: 14px; }
       <span class="bar bar-technology"></span><span class="num">05</span><span>TECHNOLOGY</span>
     </div>
 
-    <div class="bt dropcap" style="position:absolute; left:56px; top:142px; width:520px; font-size:19px; line-height:1.55;">
-      <p>Low voltage systems were, until relatively recently, often treated as secondary
+    <div class="bt " style="position:absolute; left:56px; top:142px; width:520px; font-size:19px; line-height:1.55;"><div style="display:flex;align-items:flex-start;gap:22px"><div style="flex:0 0 auto;font-family:'Space Grotesk';font-weight:700;color:var(--mint);font-size:190px;line-height:.75"><</div><div style="flex:1">p>Low voltage systems were, until relatively recently, often treated as secondary
       considerations within the broader delivery of building services. Typically introduced later
       in the design process and procured as client-direct or nominated packages, they were
-      treated as supporting elements rather than core to overall building performance.</p>
+      treated as supporting elements rather than core to overall building performance.</div></div></div>
     </div>
 
     <div class="bt two" style="position:absolute; left:56px; top:400px; width:597px;">
@@ -1836,10 +1824,9 @@ p + p { margin-top: 14px; }
       <span class="bar bar-features"></span><span>CURTIN SINGAPORE</span>
     </div>
 
-    <div class="bt dropcap" style="position:absolute; left:56px; top:142px; width:520px; font-size:19px; line-height:1.55;">
-      <p>On weekday mornings at Singapore Science Park 2, the Alpha building fills with a tide of
+    <div class="bt " style="position:absolute; left:56px; top:142px; width:520px; font-size:19px; line-height:1.55;"><div style="display:flex;align-items:flex-start;gap:22px"><div style="flex:0 0 auto;font-family:'Space Grotesk';font-weight:700;color:var(--mint);font-size:190px;line-height:.75"><</div><div style="flex:1">p>On weekday mornings at Singapore Science Park 2, the Alpha building fills with a tide of
       students. Card readers blink, screens wake, and a soft breath of cooled air follows people
-      into classrooms.</p>
+      into classrooms.</div></div></div>
     </div>
 
     <div class="bt two" style="position:absolute; left:56px; top:392px; width:597px;">
