@@ -23,8 +23,28 @@ base = base.replace("'Roboto VF'", "'Roboto'").replace("'Space Grotesk VF'", "'S
 base = re.sub(r'\.dropcap::first-letter \{[^}]*\}\n', '', base)
 base = re.sub(r'\.pullquote::before \{[^}]*\}\n', '', base)
 
-BAR = ('<span style="display:block;width:96px;height:8px;'
-       'background:var(--rule, var(--mint));margin-bottom:24px"></span>')
+RULE_COLOURS = {'mint': '#4CBC8E', 'coral': '#F1583A', 'sky': '#9BD9E5',
+                'lilac': '#9F89C0', 'peach': '#FFE2CB'}
+
+def transform_pullquote(m):
+    tag, attrs = m.group(1), m.group(2)
+    colour = RULE_COLOURS['mint']
+    rm = re.search(r'--rule:\s*var\(--(\w+)\)', attrs)
+    if rm and rm.group(1) in RULE_COLOURS:
+        colour = RULE_COLOURS[rm.group(1)]
+    # flex column so the bar and quote never overlap in Canva's flattening
+    if 'style="' in attrs:
+        attrs = attrs.replace('style="', 'style="display:flex;flex-direction:column;gap:24px;', 1)
+    else:
+        attrs += ' style="display:flex;flex-direction:column;gap:24px;"'
+    bar = f'<span style="width:96px;height:8px;background:{colour}"></span>'
+    return f'<{tag}{attrs}>{bar}<span>{m.group(3)}</span></{tag}>'
+
+def transform_wordmark(m):
+    size = int(m.group(1))
+    h = round(size * 2132 / 2048)
+    return (f'<img src="{RAW}assets/wordmark.svg" alt="MINDMEP" '
+            f'style="height:{h}px; vertical-align:top;">')
 
 def transform_dropcap(m):
     attrs, inner = m.group(1), m.group(2)
@@ -52,12 +72,16 @@ for f in sorted(glob.glob('spreads/spread-*.html')):
     # dropcap paragraphs (p or div, class anywhere in the attr list)
     div = re.sub(r'<(?:p|div)([^>]*class="[^"]*dropcap[^"]*"[^>]*)>(.*?)</(?:p|div)>',
                  transform_dropcap, div, flags=re.S)
-    # pullquotes: inject explicit bar as first child
-    div = re.sub(r'(<[a-z]+[^>]*class="[^"]*pullquote[^"]*"[^>]*>)', r'\1' + BAR, div)
-    # flipped-M wordmark glyph: Canva drops CSS transforms, so use the SVG glyph asset
-    div = div.replace('<span class="m-flip">M</span>',
-                      f'<img src="{RAW}assets/mflip.svg" alt="" '
-                      'style="height:.71em; margin-right:.06em; vertical-align:baseline;">')
+    # pullquotes: flex column with an explicit statically-coloured bar
+    div = re.sub(r'<(div|p)([^>]*class="[^"]*pullquote[^"]*"[^>]*)>(.*?)</\1>',
+                 transform_pullquote, div, flags=re.S)
+    # wordmark: Canva drops CSS transforms, so swap the whole lockup for the SVG logo
+    div = re.sub(r'<span class="wordmark"[^>]*font-size:(\d+)px[^>]*>'
+                 r'MIND<span class="m-flip">M</span>EP</span>',
+                 transform_wordmark, div)
+    # remove the now-redundant absolute mint bar divs beside the old wordmarks
+    div = div.replace('<div style="position:absolute; left:795px; top:252px; width:116px; height:20px; background:var(--mint);"></div>', '')
+    div = div.replace('<div style="position:absolute; left:744px; top:318px; width:72px; height:11px; background:var(--mint);"></div>', '')
     div = div.replace('src="../assets/', f'src="{RAW}assets/')
     div = div.replace("url('../assets/", f"url('{RAW}assets/")
     div = div.replace('url("../assets/', f'url("{RAW}assets/')
