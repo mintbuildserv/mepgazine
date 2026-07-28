@@ -6,10 +6,11 @@ spread format) and refined per editorial-craft review.
 
 ## Canvas
 
-- One HTML file per **spread** (two facing A5 portrait pages side by side).
-- Canvas: **1418 × 998 px** (708.66 × 498.9 pt at 2 px/pt). `data-document-role="page"` on the spread root.
-- Safe margins: 60 px outer edges, 90 px top for running elements, gutter at x = 709 (avoid placing body text across it; images MAY bleed across).
-- Full-bleed imagery allowed and encouraged (the original uses full-bleed photo spreads as section breathers).
+- **CORRECTED 2026-07-28: this is a single-page A5 LANDSCAPE magazine (210 × 148 mm per page), NOT facing-page spreads.** Each HTML file is ONE page. Files keep the historical `spread-` prefix; read "spread NN" as "page NN".
+- Canvas: **1418 × 998 px**, printed at A5 landscape (aspect difference 0.14%, imperceptible). `data-document-role="page"` on the page root.
+- Safe margins: 60 px edges, 90 px top for running elements. The old "gutter at x = 709" rule is void — there is no gutter; text may span the full width. The half-page macro-columns it produced remain a legitimate layout rhythm.
+- Full-bleed imagery allowed and encouraged (the original uses full-bleed photo pages as section breathers).
+- Folio: ONE per editorial page, bottom-right, `MINDMEP · NN` where NN = page number (cover = 01). No folio on covers, full-bleed photo pages, or section openers.
 
 ## Colour (Mint brand palette — identity preserved, never reinvent)
 
@@ -50,7 +51,7 @@ Local files in `fonts/` — never substitute.
 | Caption / credit | Space Grotesk Regular | 15 | |
 | Contact card | Roboto Bold 20 / Space Grotesk 17 | | White on navy rounded panel, 24 px radius |
 | Drop cap | Space Grotesk Bold | 200, `--mint` | 4-line drop, opener paragraph only, one per article |
-| Folio | Space Grotesk Medium | 15 | Page number + `MINDMEP` at outer bottom corners of editorial pages |
+| Folio | Space Grotesk Medium | 15 | One per editorial page: `MINDMEP · NN` bottom-right |
 
 ## Layout grammar (page archetypes)
 
